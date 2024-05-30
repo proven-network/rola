@@ -1,4 +1,4 @@
-use radix_engine_common::crypto::PublicKey;
+use radix_common::crypto::PublicKey;
 use serde::Deserialize;
 
 #[derive(Clone, Debug, Deserialize, PartialEq)]

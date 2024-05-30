@@ -8,7 +8,7 @@ use error::Error::{InvalidProof, InvalidPublicKey};
 pub use error::{Error, Result};
 use util::*;
 
-use radix_engine_common::network::NetworkDefinition;
+use radix_common::network::NetworkDefinition;
 
 #[derive(Debug)]
 pub struct Rola {

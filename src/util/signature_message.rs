@@ -1,4 +1,4 @@
-use radix_engine_common::crypto::{hash, Hash};
+use radix_common::crypto::{hash, Hash};
 
 pub fn create_signature_message_hash(
     challenge: String,

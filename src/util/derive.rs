@@ -1,7 +1,7 @@
 use crate::{Proof, Result, SignedChallenge};
 
-use radix_engine_common::crypto::{HasPublicKeyHash, IsPublicKeyHash, PublicKey};
-use radix_engine_common::network::NetworkDefinition;
+use radix_common::crypto::{HasPublicKeyHash, IsPublicKeyHash, PublicKey};
+use radix_common::network::NetworkDefinition;
 
 pub fn get_owner_key_part_for_public_key(public_key: &PublicKey) -> String {
     let hash = public_key.get_hash();

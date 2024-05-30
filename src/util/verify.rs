@@ -4,7 +4,7 @@ use crate::error::Error::{CurveDoesNotMatchKey, FailedVerification};
 use crate::error::Result;
 use crate::{Curve, Proof};
 
-use radix_engine_common::crypto::{
+use radix_common::crypto::{
     verify_ed25519, verify_secp256k1, Ed25519Signature, Hash, PublicKey, Secp256k1Signature,
 };
 

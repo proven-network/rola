@@ -1,7 +1,7 @@
 use rola::{Curve, Proof, Result, Rola, SignedChallenge, Type};
 
-use radix_engine_common::crypto::{Ed25519PublicKey, Secp256k1PublicKey};
-use radix_engine_common::network::NetworkDefinition;
+use radix_common::crypto::{Ed25519PublicKey, Secp256k1PublicKey};
+use radix_common::network::NetworkDefinition;
 
 #[tokio::main]
 async fn main() -> Result<()> {

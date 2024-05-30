@@ -3,7 +3,7 @@ use std::future::IntoFuture;
 use crate::error::Error::{AddressHasNoOwnerKeys, AddressNotFound};
 use crate::error::Result;
 
-use radix_engine_common::network::NetworkDefinition;
+use radix_common::network::NetworkDefinition;
 use radix_gateway_sdk::generated::model::{
     ResourceAggregationLevel::Vault, StateEntityDetailsOptIns,
 };

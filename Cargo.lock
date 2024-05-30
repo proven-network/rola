@@ -138,9 +138,9 @@ dependencies = [
 
 [[package]]
 name = "bnum"
-version = "0.7.0"
+version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "845141a4fade3f790628b7daaaa298a25b204fb28907eb54febe5142db6ce653"
+checksum = "3e31ea183f6ee62ac8b8a8cf7feddd766317adfb13ff469de57ce033efd6a790"
 dependencies = [
  "num-integer",
  "num-traits",
@@ -193,8 +193,9 @@ dependencies = [
 
 [[package]]
 name = "const-sha1"
-version = "0.2.0"
-source = "git+https://github.com/radixdlt/const-sha1#5e9ae2a99e9c76e85aa67f42e4b62e7f7ce8dad4"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0d8a42181e0652c2997ae4d217f25b63c5337a52fd2279736e97b832fa0a3cff"
 
 [[package]]
 name = "cookie"
@@ -489,12 +490,6 @@ checksum = "d2fabcfbdc87f4758337ca535fb41a6d701b65693ce38287d856d1674551ec9b"
 
 [[package]]
 name = "hashbrown"
-version = "0.13.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "43a3c133739dddd0d2990f9a4bdf8eb4b21ef50e4851ca85ab661199821d510e"
-
-[[package]]
-name = "hashbrown"
 version = "0.14.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1"
@@ -561,7 +556,7 @@ dependencies = [
  "http",
  "hyper",
  "hyper-rustls",
- "indexmap 2.2.6",
+ "indexmap",
  "rand 0.8.5",
  "regex",
  "serde",
@@ -643,21 +638,13 @@ dependencies = [
 
 [[package]]
 name = "indexmap"
-version = "2.0.0-pre"
-source = "git+https://github.com/bluss/indexmap?rev=eedabaca9f84e520eab01325b305c08f3773e66c#eedabaca9f84e520eab01325b305c08f3773e66c"
-dependencies = [
- "hashbrown 0.13.2",
- "serde",
-]
-
-[[package]]
-name = "indexmap"
 version = "2.2.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "168fb715dda47215e360912c096649d23d58bf392ac62f73919e831745e40f26"
 dependencies = [
  "equivalent",
- "hashbrown 0.14.5",
+ "hashbrown",
+ "serde",
 ]
 
 [[package]]
@@ -896,9 +883,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "radix-engine-common"
-version = "1.1.2"
-source = "git+https://github.com/radixdlt/radixdlt-scrypto.git#07327fcc3ac035fd7aff136d1a75a825e4b8f613"
+name = "radix-common"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d1ce97ee67264628b4651706ec6808e443fbb0ecba766824a0e94887a5b54969"
 dependencies = [
  "bech32 0.9.1",
  "blake2",
@@ -911,24 +899,14 @@ dependencies = [
  "num-integer",
  "num-traits",
  "paste",
- "radix-engine-derive",
+ "radix-rust",
+ "radix-sbor-derive",
  "sbor",
  "secp256k1",
  "serde",
  "sha3",
  "strum",
- "utils",
-]
-
-[[package]]
-name = "radix-engine-derive"
-version = "1.1.2"
-source = "git+https://github.com/radixdlt/radixdlt-scrypto.git#07327fcc3ac035fd7aff136d1a75a825e4b8f613"
-dependencies = [
- "proc-macro2",
- "quote",
- "sbor-derive-common",
- "syn 1.0.93",
+ "zeroize",
 ]
 
 [[package]]
@@ -944,6 +922,28 @@ dependencies = [
  "lazy_static",
  "serde",
  "serde_json",
+]
+
+[[package]]
+name = "radix-rust"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6010fd7ebd7c2d3a3d270525c54a0dcb43fbaf3447fb32b42a0bcc4326109c64"
+dependencies = [
+ "indexmap",
+ "serde",
+]
+
+[[package]]
+name = "radix-sbor-derive"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7cc92b5760b129af15be9a82fe2e8118aa851da81b22c8a12d56ab494f071321"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "sbor-derive-common",
+ "syn 1.0.109",
 ]
 
 [[package]]
@@ -1078,7 +1078,7 @@ dependencies = [
  "derive_more",
  "futures",
  "hex",
- "radix-engine-common",
+ "radix-common",
  "radix-gateway-sdk",
  "serde",
  "tokio",
@@ -1156,37 +1156,41 @@ dependencies = [
 
 [[package]]
 name = "sbor"
-version = "1.1.2"
-source = "git+https://github.com/radixdlt/radixdlt-scrypto.git#07327fcc3ac035fd7aff136d1a75a825e4b8f613"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "17d72c7d255b90198cf83c4cc4907021a927f484586939d8d50bdcd045287bde"
 dependencies = [
  "const-sha1",
  "hex",
  "lazy_static",
  "paste",
+ "radix-rust",
  "sbor-derive",
  "serde",
- "utils",
 ]
 
 [[package]]
 name = "sbor-derive"
-version = "1.1.2"
-source = "git+https://github.com/radixdlt/radixdlt-scrypto.git#07327fcc3ac035fd7aff136d1a75a825e4b8f613"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a51a6bd2e7849a2a8826a473e83a9a995011af21892acee89e62ce93f0d7c42"
 dependencies = [
  "proc-macro2",
  "sbor-derive-common",
+ "syn 1.0.109",
 ]
 
 [[package]]
 name = "sbor-derive-common"
-version = "1.1.2"
-source = "git+https://github.com/radixdlt/radixdlt-scrypto.git#07327fcc3ac035fd7aff136d1a75a825e4b8f613"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "02f1209a1d8c81d724c45afc06e41aa4e64a18b389e8cdece53da61bad1c1620"
 dependencies = [
  "const-sha1",
  "itertools",
  "proc-macro2",
  "quote",
- "syn 1.0.93",
+ "syn 1.0.109",
 ]
 
 [[package]]
@@ -1216,18 +1220,18 @@ dependencies = [
 
 [[package]]
 name = "secp256k1"
-version = "0.24.3"
+version = "0.28.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b1629c9c557ef9b293568b338dddfc8208c98a18c59d722a9d53f859d9c9b62"
+checksum = "d24b59d129cdadea20aea4fb2352fa053712e5d713eee47d700cd4b2bc002f10"
 dependencies = [
  "secp256k1-sys",
 ]
 
 [[package]]
 name = "secp256k1-sys"
-version = "0.6.1"
+version = "0.9.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "83080e2c2fc1006e625be82e5d1eb6a43b7fd9578b617fcc55814daf286bba4b"
+checksum = "e5d1746aae42c19d583c3c1a8c646bfad910498e2051c551a7f2e3c0c9fbb7eb"
 dependencies = [
  "cc",
 ]
@@ -1393,16 +1397,6 @@ name = "subtle"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "81cdd64d312baedb58e21336b31bc043b77e01cc99033ce76ef539f78e965ebc"
-
-[[package]]
-name = "syn"
-version = "1.0.93"
-source = "git+https://github.com/dtolnay/syn.git?tag=1.0.93#2e505a847174ff8939431c4f5ffb565906590ac2"
-dependencies = [
- "proc-macro2",
- "quote",
- "unicode-xid",
-]
 
 [[package]]
 name = "syn"
@@ -1582,12 +1576,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
 
 [[package]]
-name = "unicode-xid"
-version = "0.2.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f962df74c8c05a667b5ee8bcf162993134c104e96440b663c8daa176dc772d8c"
-
-[[package]]
 name = "untrusted"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1598,15 +1586,6 @@ name = "urlencoding"
 version = "2.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "daf8dba3b7eb870caf1ddeed7bc9d2a049f3cfdfae7cb521b087cc33ae4c49da"
-
-[[package]]
-name = "utils"
-version = "1.1.2"
-source = "git+https://github.com/radixdlt/radixdlt-scrypto.git#07327fcc3ac035fd7aff136d1a75a825e4b8f613"
-dependencies = [
- "indexmap 2.0.0-pre",
- "serde",
-]
 
 [[package]]
 name = "version_check"

@@ -2,7 +2,7 @@ use derive_more::From;
 
 pub type Result<T> = core::result::Result<T, Error>;
 
-use radix_engine_common::crypto::{ParseEd25519SignatureError, ParseSecp256k1SignatureError};
+use radix_common::crypto::{ParseEd25519SignatureError, ParseSecp256k1SignatureError};
 
 #[derive(Debug, From)]
 pub enum Error {
