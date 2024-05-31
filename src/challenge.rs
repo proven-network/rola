@@ -2,18 +2,21 @@ use radix_common::crypto::PublicKey;
 use serde::Deserialize;
 
 #[derive(Clone, Debug, Deserialize, PartialEq)]
+#[serde(rename_all = "camelCase")]
 pub enum Curve {
     Curve25519,
     Secp256k1,
 }
 
 #[derive(Clone, Debug, Deserialize, PartialEq)]
+#[serde(rename_all = "camelCase")]
 pub enum Type {
     Account,
     Persona,
 }
 
 #[derive(Clone, Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Proof {
     pub curve: Curve,
     pub public_key: PublicKey,
@@ -21,6 +24,7 @@ pub struct Proof {
 }
 
 #[derive(Clone, Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct SignedChallenge {
     pub address: String,
     pub challenge: String,
