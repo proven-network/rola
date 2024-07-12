@@ -527,13 +527,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "http"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "21b9ddb458710bc376481b842f5da65cdf31522de232c1ca8146abce2a358258"
+dependencies = [
+ "bytes",
+ "fnv",
+ "itoa",
+]
+
+[[package]]
 name = "http-body"
 version = "0.4.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7ceab25649e9960c0311ea418d17bee82c0dcec1bd053b5f9a66e265a693bed2"
 dependencies = [
  "bytes",
- "http",
+ "http 0.2.12",
  "pin-project-lite",
 ]
 
@@ -545,15 +556,15 @@ checksum = "d897f394bad6a705d5f4104762e116a75639e470d80901eed05a860a95cb1904"
 
 [[package]]
 name = "httpclient"
-version = "0.22.1"
+version = "0.23.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d127764cbe4f9843b352beebf549ba51afb711da31c366f7c0747889bf4e4a3c"
+checksum = "58b90b46efaaf02355d864daf6aea2cf48dc651529dceca42e9c2795674ae35b"
 dependencies = [
  "async-trait",
  "cookie",
  "encoding_rs",
  "futures",
- "http",
+ "http 1.1.0",
  "hyper",
  "hyper-rustls",
  "indexmap",
@@ -584,7 +595,7 @@ dependencies = [
  "futures-channel",
  "futures-core",
  "futures-util",
- "http",
+ "http 0.2.12",
  "http-body",
  "httparse",
  "httpdate",
@@ -604,7 +615,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec3efd23720e2049821a693cbc7e65ea87c72f1c58ff2f9522ff332b1491e590"
 dependencies = [
  "futures-util",
- "http",
+ "http 0.2.12",
  "hyper",
  "log",
  "rustls",
@@ -912,12 +923,12 @@ dependencies = [
 [[package]]
 name = "radix-gateway-sdk"
 version = "0.1.0"
-source = "git+https://github.com/borderline-labs/radix-gateway-sdk.git#987e38a84a0742215c37f0120ca265d7ad522a5c"
+source = "git+https://github.com/proven-network/radix-gateway-sdk.git#0d131180ef30874a52300bf337b184af8ada92f7"
 dependencies = [
  "chrono",
  "derive_more",
  "futures",
- "http",
+ "http 1.1.0",
  "httpclient",
  "lazy_static",
  "serde",
@@ -1292,9 +1303,9 @@ dependencies = [
 
 [[package]]
 name = "serde_qs"
-version = "0.12.0"
+version = "0.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0431a35568651e363364210c91983c1da5eb29404d9f0928b67d4ebcfa7d330c"
+checksum = "cd34f36fe4c5ba9654417139a9b3a20d2e1de6012ee678ad14d240c22c78d8d6"
 dependencies = [
  "percent-encoding",
  "serde",
